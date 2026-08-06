@@ -25,6 +25,7 @@ npm run build    # staattinen build build/-hakemistoon
 
 ## Julkaisu
 
-GitHub Actions -workflow (`.github/workflows/deploy.yml`) buildaa ja julkaisee sivun GitHub Pagesiin jokaisesta `main`-pushista. Buildissa `BASE_PATH=/oppilas`, koska Pages tarjoilee sivun repopolun alta.
+- **Vercel**: <https://oppilas.vercel.app> — repo on kytketty Verceliin, joten jokainen `main`-push julkaisee automaattisesti (`vercel.json`: staattinen build `build/`-hakemistosta).
+- **GitHub Pages**: <https://ollisulopuisto.github.io/oppilas/> — `.github/workflows/deploy.yml` buildaa ja julkaisee jokaisesta `main`-pushista. Buildissa `BASE_PATH=/oppilas`, koska Pages tarjoilee sivun repopolun alta.
 
 Versiointi: CalVer (`vYY.MM.DD.build`).
