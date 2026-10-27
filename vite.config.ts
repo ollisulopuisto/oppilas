@@ -10,9 +10,7 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-
 			adapter: adapter(),
-			// GitHub Pages serves the site under /<repo>/; CI sets BASE_PATH accordingly.
 			paths: { base: (process.env.BASE_PATH ?? '') as '' | `/${string}` }
 		})
 	],

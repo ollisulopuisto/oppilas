@@ -8,8 +8,8 @@
 		fetchDistricts,
 		type District,
 		type DistrictLayerId
-	} from '$lib/districts';
-	import { buildOikotieUrl } from '$lib/wkt';
+	} from '#lib/districts';
+	import { buildOikotieUrl } from '#lib/wkt';
 
 	let mapElement: HTMLDivElement;
 	let map: L.Map | undefined;
@@ -45,9 +45,9 @@
 		loading = true;
 		error = null;
 		try {
-			let districts = cache.get(layerId);
-			if (!districts) {
-				districts = await fetchDistricts(layerId);
+			const cached = cache.get(layerId);
+			const districts = cached ?? (await fetchDistricts(layerId));
+			if (!cached) {
 				cache.set(layerId, districts);
 			}
 			if (layerId !== activeLayer) return; // user switched again mid-fetch
