@@ -65,10 +65,10 @@
 						layer.bindTooltip(district.name, { sticky: true });
 						layer.bindPopup(() => popupContent(district));
 						layer.on('mouseover', () => {
-							(layer as L.Path).setStyle({ fillOpacity: 0.25 });
+							if (layer instanceof L.Path) layer.setStyle({ fillOpacity: 0.25 });
 						});
 						layer.on('mouseout', () => {
-							(layer as L.Path).setStyle({ fillOpacity: 0.08 });
+							if (layer instanceof L.Path) layer.setStyle({ fillOpacity: 0.08 });
 						});
 					}
 				}
